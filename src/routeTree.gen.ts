@@ -20,6 +20,10 @@ import { Route as SearchResultsRouteImport } from './routes/search-results'
 import { Route as CountriesCanadaRouteImport } from './routes/countries.canada'
 import { Route as CountriesIndiaRouteImport } from './routes/countries.india'
 import { Route as CountriesUsaRouteImport } from './routes/countries.usa'
+import { Route as PortalBuilderRouteImport } from './routes/portal.builder'
+import { Route as PortalCustomerRouteImport } from './routes/portal.customer'
+import { Route as PortalLandlordRouteImport } from './routes/portal.landlord'
+import { Route as PortalManagerRouteImport } from './routes/portal.manager'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -76,6 +80,26 @@ const CountriesUsaRoute = CountriesUsaRouteImport.update({
   path: '/countries/usa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortalBuilderRoute = PortalBuilderRouteImport.update({
+  id: '/portal/builder',
+  path: '/portal/builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalCustomerRoute = PortalCustomerRouteImport.update({
+  id: '/portal/customer',
+  path: '/portal/customer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalLandlordRoute = PortalLandlordRouteImport.update({
+  id: '/portal/landlord',
+  path: '/portal/landlord',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalManagerRoute = PortalManagerRouteImport.update({
+  id: '/portal/manager',
+  path: '/portal/manager',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -89,6 +113,10 @@ export interface FileRoutesByFullPath {
   '/countries/canada': typeof CountriesCanadaRoute
   '/countries/india': typeof CountriesIndiaRoute
   '/countries/usa': typeof CountriesUsaRoute
+  '/portal/builder': typeof PortalBuilderRoute
+  '/portal/customer': typeof PortalCustomerRoute
+  '/portal/landlord': typeof PortalLandlordRoute
+  '/portal/manager': typeof PortalManagerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +130,10 @@ export interface FileRoutesByTo {
   '/countries/canada': typeof CountriesCanadaRoute
   '/countries/india': typeof CountriesIndiaRoute
   '/countries/usa': typeof CountriesUsaRoute
+  '/portal/builder': typeof PortalBuilderRoute
+  '/portal/customer': typeof PortalCustomerRoute
+  '/portal/landlord': typeof PortalLandlordRoute
+  '/portal/manager': typeof PortalManagerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +148,10 @@ export interface FileRoutesById {
   '/countries/canada': typeof CountriesCanadaRoute
   '/countries/india': typeof CountriesIndiaRoute
   '/countries/usa': typeof CountriesUsaRoute
+  '/portal/builder': typeof PortalBuilderRoute
+  '/portal/customer': typeof PortalCustomerRoute
+  '/portal/landlord': typeof PortalLandlordRoute
+  '/portal/manager': typeof PortalManagerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +167,10 @@ export interface FileRouteTypes {
     | '/countries/canada'
     | '/countries/india'
     | '/countries/usa'
+    | '/portal/builder'
+    | '/portal/customer'
+    | '/portal/landlord'
+    | '/portal/manager'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +184,10 @@ export interface FileRouteTypes {
     | '/countries/canada'
     | '/countries/india'
     | '/countries/usa'
+    | '/portal/builder'
+    | '/portal/customer'
+    | '/portal/landlord'
+    | '/portal/manager'
   id:
     | '__root__'
     | '/'
@@ -157,6 +201,10 @@ export interface FileRouteTypes {
     | '/countries/canada'
     | '/countries/india'
     | '/countries/usa'
+    | '/portal/builder'
+    | '/portal/customer'
+    | '/portal/landlord'
+    | '/portal/manager'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +219,10 @@ export interface RootRouteChildren {
   CountriesCanadaRoute: typeof CountriesCanadaRoute
   CountriesIndiaRoute: typeof CountriesIndiaRoute
   CountriesUsaRoute: typeof CountriesUsaRoute
+  PortalBuilderRoute: typeof PortalBuilderRoute
+  PortalCustomerRoute: typeof PortalCustomerRoute
+  PortalLandlordRoute: typeof PortalLandlordRoute
+  PortalManagerRoute: typeof PortalManagerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -252,6 +304,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CountriesUsaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal/builder': {
+      id: '/portal/builder'
+      path: '/portal/builder'
+      fullPath: '/portal/builder'
+      preLoaderRoute: typeof PortalBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/customer': {
+      id: '/portal/customer'
+      path: '/portal/customer'
+      fullPath: '/portal/customer'
+      preLoaderRoute: typeof PortalCustomerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/landlord': {
+      id: '/portal/landlord'
+      path: '/portal/landlord'
+      fullPath: '/portal/landlord'
+      preLoaderRoute: typeof PortalLandlordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/manager': {
+      id: '/portal/manager'
+      path: '/portal/manager'
+      fullPath: '/portal/manager'
+      preLoaderRoute: typeof PortalManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -267,6 +347,10 @@ const rootRouteChildren: RootRouteChildren = {
   CountriesCanadaRoute: CountriesCanadaRoute,
   CountriesIndiaRoute: CountriesIndiaRoute,
   CountriesUsaRoute: CountriesUsaRoute,
+  PortalBuilderRoute: PortalBuilderRoute,
+  PortalCustomerRoute: PortalCustomerRoute,
+  PortalLandlordRoute: PortalLandlordRoute,
+  PortalManagerRoute: PortalManagerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

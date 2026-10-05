@@ -48,8 +48,8 @@ export function PropertySearch() {
   };
 
   return (
-    <div className="hero-search w-full max-w-[1300px] hidden lg:flex">
-      <div className="hero-search-field">
+    <div className="hero-search w-full max-w-[1300px] flex flex-col lg:flex-row gap-4 lg:gap-0 p-6 lg:p-[20px_32px] overflow-y-auto max-h-[80vh] lg:max-h-none">
+      <div className="hero-search-field border-b lg:border-b-0 lg:border-r border-white/15 pb-4 lg:pb-0">
         <span className="hero-search-label">Property Type</span>
         <div className="hero-search-select-wrapper">
           <select aria-label="Property Type">
@@ -62,7 +62,7 @@ export function PropertySearch() {
         </div>
       </div>
       
-      <div className="hero-search-field">
+      <div className="hero-search-field border-b lg:border-b-0 lg:border-r border-white/15 pb-4 lg:pb-0">
         <span className="hero-search-label">Bedroom</span>
         <div className="hero-search-select-wrapper">
           <select aria-label="Bedroom">

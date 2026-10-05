@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/realty/reveal";
 import { CtaBand } from "@/components/realty/cta-band";
 import { PropertySearch } from "@/components/realty/property-search";
+import { PortalSignIn } from "@/components/realty/portal-sign-in";
 import hero from "@/assets/realty-hero.jpg";
 import building from "@/assets/realty-building.jpg";
 
@@ -193,6 +194,7 @@ function HomePage() {
       </div>
     </section>
 
+    <PortalSignIn />
     <section className="image-feature"><div className="image-feature-media"><img src={building} alt="Refined contemporary residential building framed by trees" width={1408} height={1008} loading="lazy" /></div><div className="image-feature-copy"><Reveal><span className="eyebrow light-eyebrow"><span className="eyebrow-line" />A BETTER WAY FORWARD</span><h2>Every detail deserves a closer look.</h2><p>From the credibility of a project to the structure of a transaction, the right information changes everything. We believe transparency is not an extra—it is essential.</p><Link className="text-link" to="/rera-verification">Explore verification <ArrowUpRight /></Link></Reveal></div></section>
     <section className="process-section"><div className="content-width"><Reveal className="section-heading"><div><span className="eyebrow"><span className="eyebrow-line" />HOW WE THINK</span><h2>Grounded in trust.<br />Focused on tomorrow.</h2></div></Reveal><div className="process-grid"><Reveal><div className="process-item"><strong>01 / CLARITY</strong><h3>Know what matters</h3><p>Bring important project and transaction details into focus before taking the next step.</p></div></Reveal><Reveal delay={0.1}><div className="process-item"><strong>02 / CONNECTION</strong><h3>Grow locally</h3><p>Connect district-level insight with the strength of a broader real estate network.</p></div></Reveal><Reveal delay={0.2}><div className="process-item"><strong>03 / CONFIDENCE</strong><h3>Move responsibly</h3><p>Explore safeguards and processes that support a more considered property journey.</p></div></Reveal></div></div></section>
     <CtaBand />

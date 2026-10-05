@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Menu, X, ChevronDown, Search } from "lucide-react";
+import { ArrowUpRight, Menu, X, ChevronDown, Search, LogIn } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -38,7 +38,24 @@ export function SiteHeader() {
           </button>
         </div>
       </nav>
-      <div className="header-actions"><Button variant="outlineLight" size="pill" asChild><Link to="/contact">Get in touch <ArrowUpRight /></Link></Button><Button variant="navIcon" size="icon" className="mobile-menu-button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
+      <div className="header-actions">
+        <div className="nav-dropdown login-dropdown">
+          <button className="login-trigger">
+            <LogIn size={15} />
+            <span>Login</span>
+            <ChevronDown size={13} />
+          </button>
+          <div className="nav-dropdown-content login-dropdown-content">
+            <div className="nav-dropdown-inner login-dropdown-inner">
+              <Link to={"/portal/customer" as any}>Customer</Link>
+              <Link to={"/portal/landlord" as any}>Landlord</Link>
+              <Link to={"/portal/builder" as any}>Builder / Developer</Link>
+              <Link to={"/portal/manager" as any}>Manager / Staff</Link>
+            </div>
+          </div>
+        </div>
+        <Button variant="navIcon" size="icon" className="mobile-menu-button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
+      </div>
     </div>
     {open && <nav className="mobile-nav" aria-label="Mobile navigation">
       {links.map(link => <Link key={link.to} to={link.to as any} onClick={() => setOpen(false)}>{link.label}</Link>)}
@@ -54,7 +71,15 @@ export function SiteHeader() {
         <Search size={16} style={{ color: 'var(--on-dark)' }} />
         <input type="text" placeholder="Search..." style={{ background: 'transparent', border: 'none', color: 'var(--on-dark)', fontSize: '13px', outline: 'none', width: '100%' }} />
       </div>
-      <Link to="/contact" onClick={() => setOpen(false)}>Get in touch</Link>
+      <div className="mobile-dropdown-placeholder" style={{ padding: '14px 0', borderBottom: '1px solid oklch(1 0 0 / 12%)' }}>
+        <span style={{ fontSize: '13px', opacity: 0.82, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}><LogIn size={15} /> Login</span>
+        <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '16px', gap: '12px' }}>
+          <Link to={"/portal/customer" as any} onClick={() => setOpen(false)}>Customer</Link>
+          <Link to={"/portal/landlord" as any} onClick={() => setOpen(false)}>Landlord</Link>
+          <Link to={"/portal/builder" as any} onClick={() => setOpen(false)}>Builder / Developer</Link>
+          <Link to={"/portal/manager" as any} onClick={() => setOpen(false)}>Manager / Staff</Link>
+        </div>
+      </div>
     </nav>}
   </header>;
 }
